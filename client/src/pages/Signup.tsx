@@ -9,10 +9,11 @@ import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
 import axios from "axios";
+import "./Signup.scss";
 
 axios.defaults.withCredentials = true;
 
-function Signup() {
+const Signup: React.FC = () => {
   const [modal, setModal] = useState(false);
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
   const [emailErrMsg, setEmailErrMsg] = useState(""); // 이메일 에러 메세지
@@ -32,12 +33,12 @@ function Signup() {
   const [curImg, setCurImg] = useState(userImg[0]);
   const [selectImg, setSelectImg] = useState("");
 
-  const handleInputValue = (key) => (e) => {
+  const handleInputValue = (key: string) => (e: { target: { value: any } }) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
   };
 
   // 이메일 유효성 검사
-  const emailValidation = (e) => {
+  const emailValidation = (e: { target: { value: string } }) => {
     const regExp = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
     if (!regExp.test(e.target.value)) {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
@@ -59,7 +60,7 @@ function Signup() {
 
   // 비밀번호 유효성 검사
   // 최소 8자~최대 16자, 대문자 1개 이상, 소문자 1개, 숫자 1개, 특수 문자 1개
-  const passwordValidation = (e) => {
+  const passwordValidation = (e: { target: { value: string } }) => {
     const regExp =
       // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
@@ -71,7 +72,7 @@ function Signup() {
   };
 
   // 비밀번호 재확인 검사
-  const passwordCheckValidation = (e) => {
+  const passwordCheckValidation = (e: { target: { value: string } }) => {
     if (e.target.value !== userinfo.password) {
       setpwCheckErrMsg("비밀번호가 일치하지 않습니다.");
     } else {
@@ -80,7 +81,7 @@ function Signup() {
   };
 
   // 닉네임 유효성 검사
-  const nicknameValidation = (e) => {
+  const nicknameValidation = (_e: any) => {
     axios
       .post(`${process.env.REACT_APP_EC2_URL}/signup/takenname`, {
         nickname: userinfo.nickname,
@@ -96,7 +97,7 @@ function Signup() {
     // console.log("nickname valid??", e.target.value);
   };
 
-  const clickUserImage = (e) => {
+  const clickUserImage = (e: any) => {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
   };
@@ -125,7 +126,7 @@ function Signup() {
     }
   };
   return (
-    <div>
+    <div id="signup-page">
       <div>
         <MainNav />
         <form onSubmit={(e) => e.preventDefault()}>
@@ -194,7 +195,7 @@ function Signup() {
                     <img
                       onClick={clickUserImage}
                       src={src}
-                      alt={idx}
+                      alt={idx.toString()}
                       key={idx}
                       className={
                         curImg === src
@@ -217,6 +218,6 @@ function Signup() {
       <TopButton></TopButton>
     </div>
   );
-}
+};
 
 export default Signup;

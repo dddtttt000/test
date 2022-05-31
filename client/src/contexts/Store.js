@@ -8,9 +8,11 @@ import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
 export const MyContext = createContext({
-  userInfo: { nickname: "" },
+  userInfo: { nickname: "", image: 0 },
   isLogin: false,
-  setUserInfo: () => {},
+  setUserInfo: (info) => {
+    info;
+  },
   setIsLogin: () => {},
   handleResponseSuccess: () => {},
   isAuthenticated: () => {},

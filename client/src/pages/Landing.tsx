@@ -1,34 +1,36 @@
 /*eslint-disable*/
 import React from "react";
+import "./Landing.scss";
 import { Link } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
 
 function Landing() {
   return (
-    <div>
+    <div id="landing-page">
       <div className="landing-main-logo"></div>
-      <center>
-        <div className="landing-main-container">
-          <div className="landing-main-img">
-            <div className="landing-main-text">
-              서로 다른 장면으로
-              <br></br>
-              공감하는 하나의 영화
-            </div>
-          </div>
-          <div className="landing-main-subt-1">
-            <span>잊을 수 없는, 강렬했던, 나만보기 아까운,</span>
+      {/* <center> */}
+      <div className="landing-main-container ">
+        <div className="landing-main-img">
+          <div className="landing-main-text">
+            서로 다른 장면으로
             <br></br>
-            <span>영화 속 그 장면</span> <hr />
+            공감하는 하나의 영화
           </div>
-          <div className="landing-main-subt-2">
-            <span>바로 이곳에서 그 장면을</span>
-            <br></br>
-            <span>함께 나누고 소통해 보세요.</span>
-          </div>
-          <div className="landing-arrow"></div>
         </div>
-      </center>
+        <div className="landing-main-subt-1 text-align-center margin-center">
+          <span>잊을 수 없는, 강렬했던, 나만보기 아까운,</span>
+          <br></br>
+          <span>영화 속 그 장면</span>
+          <hr />
+        </div>
+        <div className="landing-main-subt-2 text-align-center">
+          <span>바로 이곳에서 그 장면을</span>
+          <br></br>
+          <span>함께 나누고 소통해 보세요.</span>
+        </div>
+        <div className="landing-arrow margin-center"></div>
+      </div>
+      {/* </center> */}
 
       <div className="go-to-main-wrap">
         <Link className="link" to="/main">
@@ -43,7 +45,7 @@ function Landing() {
             <br></br>
             마음껏 게시하세요.
           </div>
-          <div className="landing-2-text-sub">
+          <div className="landing-2-text-sub center">
             장면을 보고 댓글로 의견을 나누며 서로의
             <br></br>
             생각을 공유해 보세요.
@@ -83,20 +85,20 @@ function Landing() {
         </div>
         <div className="landing-2-img">시연영상 들어갈 예정</div>
       </div>
-      <center>
-        <div className="landing-start-wrap">
-          <div className="start-box">
-            <div className="start-sub">영화 속 한 장면이 떠오르시나요?</div>
-            <div className="start-title">지금 바로 시작해 보세요!</div>
-            <Link className="link" to="/main">
-              <div className="start-btn">
-                <div className="start-btn-text">Get Started</div>
-                <div className="start-btn-arrow"></div>
-              </div>
-            </Link>
-          </div>
+      {/* <center> */}
+      <div className="landing-start-wrap">
+        <div className="start-box">
+          <div className="start-sub">영화 속 한 장면이 떠오르시나요?</div>
+          <div className="start-title">지금 바로 시작해 보세요!</div>
+          <Link className="link" to="/main">
+            <div className="start-btn">
+              <div className="start-btn-text">Get Started</div>
+              <div className="start-btn-arrow"></div>
+            </div>
+          </Link>
         </div>
-      </center>
+      </div>
+      {/* </center> */}
       <MainFooter />
     </div>
   );

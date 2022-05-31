@@ -1,8 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router";
+import { Interface } from "readline";
 require("dotenv").config();
 
-function GenreScene({ value }) {
+interface Props {
+  value: any;
+  onClick: Function;
+}
+
+const GenreScene: React.FC<Props> = ({ value, onClick }) => {
   const history = useHistory();
   return (
     <div>
@@ -19,6 +25,6 @@ function GenreScene({ value }) {
       </div>
     </div>
   );
-}
+};
 
 export default GenreScene;

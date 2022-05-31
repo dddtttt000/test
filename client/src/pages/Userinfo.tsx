@@ -10,10 +10,11 @@ import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
 import axios from "axios";
+import "./Userinfo.scss";
 
 axios.defaults.withCredentials = true;
 
-function Userinfo() {
+const Userinfo: React.FC = () => {
   const { userInfo, setUserInfo } = useContext(MyContext); // 유저 정보를 확인
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[userInfo.image]);
@@ -26,17 +27,17 @@ function Userinfo() {
   const [nickErrMsg, setNickErrMsg] = useState(""); // 닉네임 에러 메세지
   const [nickCheckMsg, setNickCheckMsg] = useState(""); // 닉네임 사용가능 메세지
   const [userinfo, setuserinfo] = useState({
-    nickname: null,
-    password: null,
-    passwordCheck: null,
+    nickname: "",
+    password: "",
+    passwordCheck: "",
   });
 
-  const handleInputValue = (key) => (e) => {
+  const handleInputValue = (key: string) => (e: { target: { value: any } }) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
   };
 
   // 닉네임 유효성 검사
-  const nicknameValidation = (e) => {
+  const nicknameValidation = (_e: any) => {
     // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
     axios
       .post(
@@ -44,7 +45,7 @@ function Userinfo() {
         {
           nickname: userinfo.nickname,
         },
-        { accept: "application/json" },
+        // { accept: "application/json" },
       )
       .then((res) => {
         setNickErrMsg("");
@@ -57,7 +58,7 @@ function Userinfo() {
   };
 
   // 비밀번호 유효성 검사
-  const passwordValidation = (e) => {
+  const passwordValidation = (e: { target: { value: string } }) => {
     const regExp =
       // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
@@ -71,7 +72,7 @@ function Userinfo() {
   };
 
   // 비밀번호 재확인 검사
-  const passwordCheckValidation = (e) => {
+  const passwordCheckValidation = (e: any) => {
     if (e.target.value !== userinfo.password) {
       setpwCheckErrMsg("비밀번호가 일치하지 않습니다.");
     } else {
@@ -83,7 +84,7 @@ function Userinfo() {
   const handleChangeUserInfo = () => {
     setErrMsg("");
     const { nickname, password } = userinfo;
-    const patchBody = {};
+    const patchBody = { newName: "", newPassword: "", newImage: 0 };
     if (!!nickname) {
       patchBody.newName = nickname;
     }
@@ -131,7 +132,7 @@ function Userinfo() {
   const handleSignOut = () => {
     axios
       .delete(`${process.env.REACT_APP_EC2_URL}/user`, {
-        accept: "application/json",
+        // accept: "application/json",
       })
       .then((res) => {
         window.location.replace("/");
@@ -152,13 +153,13 @@ function Userinfo() {
     setEditImg(true);
   };
 
-  const handleImgClick = (e) => {
+  const handleImgClick = (e: any) => {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
   };
 
   return (
-    <div>
+    <div id="userinfo-page">
       <div>
         <MainNav />
         <div className="userinfo">
@@ -180,7 +181,7 @@ function Userinfo() {
                         onClick={handleImgClick}
                         src={src}
                         key={idx}
-                        alt={idx}
+                        alt={idx.toString()}
                         className={
                           curImg === src
                             ? "signup-image-group-1-selected"
@@ -253,6 +254,6 @@ function Userinfo() {
       ) : null}
     </div>
   );
-}
+};
 
 export default Userinfo;
