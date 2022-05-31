@@ -1,0 +1,279 @@
+#main-page {
+  .main-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .main-wrap {
+    width: 1060px;
+    height: auto;
+    margin: auto;
+  }
+
+  .main-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 200px;
+    display: inline-block;
+  }
+
+  .main-text-all {
+    color: white;
+    float: right;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .main-gallery {
+    padding-top: 34px;
+    width: 1060px;
+    height: 360px;
+  }
+
+  .main-gallery-all {
+    /* position: absolute; */
+    float: right;
+    color: white;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .main-gallery-wrap {
+    width: 1060px;
+    height: 299px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .main-gallery-group {
+    display: flex;
+  }
+
+  .main-gallery-Arrowleft {
+    background: url("../img/ArrowLeft.png");
+    width: 25px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+    cursor: pointer;
+  }
+
+  .main-gallery-Arrowright {
+    background: url("../img/ArrowRight.png");
+    width: 25px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+    cursor: pointer;
+  }
+
+  .main-gallery-page {
+    width: 1060px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-gallery-numSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("../img/SeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
+  }
+
+  .main-gallery-numNoSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("../img/NoSeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
+  }
+
+  .main-genre {
+    width: 1060px;
+    margin-top: 80px;
+  }
+
+  .main-genre-category-wrap {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+  }
+
+  .main-genre-name {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    margin-right: 12px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #070e27;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .main-genre-name:hover {
+    background-color: #0059f7;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  /* 선택된 것만 색 변경 */
+  .main-genre-name-selected {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    margin-right: 12px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #070e27;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #0059f7;
+    color: #fff;
+  }
+
+  .main-genre-img-wrap {
+    margin-top: 45px;
+    padding-bottom: 20px;
+    width: 1080px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+  }
+
+  .main-genre-img-addText {
+    width: 43px;
+    height: 19px;
+    margin: 0 auto 0 auto;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #f4f4f4;
+    cursor: pointer;
+  }
+
+  .addtext-wrap {
+    padding-bottom: 20px;
+  }
+
+  .main-genre-img-addImage {
+    width: 30px;
+    height: 30px;
+    margin: -6px auto 0 auto;
+    background: url("../img/Chevron\ Bottom.png");
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .main-genre-img-noadd {
+    width: 200px;
+    height: 50px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+  }
+
+  /* 인기 갤러리 BestGallery */
+  .BG-container {
+    width: 330px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin-bottom: 30px;
+  }
+
+  .BG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
+  }
+
+  .BG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .BG-img-wrap {
+    width: 315.49px;
+    height: 200.05px;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .BG-img {
+    width: 150px;
+    height: 100px;
+    /* border: 0.1px solid gray; */
+    margin: 1px;
+  }
+
+  .BG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .BG-img-no {
+    width: 100%;
+    height: 100%;
+    background: url("../../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .genre-img {
+    width: 250px;
+    height: 157px;
+    /* border: 1px solid #344583; */
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 18px;
+    margin-bottom: 20px;
+  }
+
+  .genre-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .genre-img > img:hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.8);
+  }
+}

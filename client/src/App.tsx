@@ -1,26 +1,26 @@
 /*eslint-disable*/
 import "./App-mobile.css";
-import "./App-tablet.css";
 import "./App-pc.css";
+import "./theme/global.scss";
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Login from "./pages/Login.js";
-import Signup from "./pages/Signup.js";
-import Userinfo from "./pages/Userinfo.js";
-import Main from "./pages/Main.js";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Userinfo from "./pages/Userinfo";
+import Main from "./pages/Main";
 import Search from "./pages/Search.js";
 import Makegallery from "./pages/Makegallery.js";
 import Makepost from "./pages/Makepost.js";
 import Post from "./pages/Post.js";
 import Gallery from "./pages/Gallery.js";
 import Mygallery from "./pages/Mygallery.js";
-import Landing from "./pages/Landing.js";
+import Landing from "./pages/Landing";
 import AllScenes from "./pages/AllScenes.js";
 import AllGallery from "./pages/AllGallery.js";
 
 require("dotenv").config();
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Switch>
@@ -66,6 +66,6 @@ function App() {
       </Switch>
     </div>
   );
-}
+};
 
 export default App;

@@ -9,9 +9,23 @@ import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
 import LoadingIndicator from "../components/LoadingIndicator";
 import mainAPI from "../api/mainAPI";
+import "./Main.scss";
 require("dotenv").config();
 
-function Main() {
+type genreSceneType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  description_id: number;
+  genre: string;
+  image: string;
+}[];
+
+// interface MainProps extends genreSceneData {}
+
+const Main: React.FC = () => {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -74,7 +88,7 @@ function Main() {
     "애니메이션",
   ];
   const curGenre = useRef("로맨스");
-  const [curScenes, setCurScenes] = useState([]);
+  const [curScenes, setCurScenes] = useState<genreSceneType>([]);
   const curScenePage = useRef(1);
   const scenePerPage = useRef(4);
   const [addSceneIcon, setAddSceneIcon] = useState(false);
@@ -89,6 +103,7 @@ function Main() {
       if (genreScene.length !== 4) {
         setAddSceneIcon(true);
       }
+      console.log(curScenes, genreScene);
       setCurScenes([...curScenes, ...genreScene]);
       curScenePage.current += scenePerPage.current;
     } catch (err) {
@@ -98,7 +113,7 @@ function Main() {
     }
   };
 
-  const changeCurGenre = (e) => {
+  const changeCurGenre = (e: any) => {
     if (curGenre.current === e.target.innerText) return;
     curScenePage.current = 1;
     curGenre.current = e.target.innerText;
@@ -113,7 +128,7 @@ function Main() {
   }, [curGenre.current]);
 
   return (
-    <div>
+    <div id="main-page">
       <div className="main-back">
         <MainNav />
         <div className="main-wrap">
@@ -180,7 +195,7 @@ function Main() {
                 })}
               </div>
               <div className="main-genre-img-wrap">
-                {curScenes.map((curScene, idx) => {
+                {curScenes.map((curScene: any, idx: number) => {
                   return (
                     <GenreScene
                       key={idx}
@@ -208,6 +223,6 @@ function Main() {
       <MainFooter />
     </div>
   );
-}
+};
 
 export default Main;

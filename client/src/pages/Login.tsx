@@ -6,9 +6,10 @@ import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
 import { MyContext } from "../contexts/Store";
+import "./Login.scss";
 axios.defaults.withCredentials = true;
 
-function Login() {
+const Login: React.FC = () => {
   const history = useHistory();
   const { handleResponseSuccess } = useContext(MyContext);
   const [userinfo, setuserinfo] = useState({
@@ -19,11 +20,11 @@ function Login() {
   const [errMsg, setErrMsg] = useState("");
   const [loginErrMsg, setLoginErrMsg] = useState(""); // 가입이 되지 않은 경우 에러
 
-  const handleInputValue = (key) => (e) => {
+  const handleInputValue = (key: string) => (e: { target: { value: any } }) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
   };
 
-  const emailValidation = (e) => {
+  const emailValidation = (e: { target: { value: string } }) => {
     const regExp = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
     if (!regExp.test(e.target.value)) {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
@@ -81,7 +82,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div id="login-page">
       <MainNav />
       <div className="login">
         <div className="loginwrap">
@@ -112,7 +113,7 @@ function Login() {
               ) : null}
             </div>
             <div className="loginErrMsg">{loginErrMsg}</div>
-            <div type="submit" id="lin-btnLogin" onClick={handleLogin}>
+            <div id="lin-btnLogin" onClick={handleLogin}>
               로그인
             </div>
             {/* <Link to="signup"> */}
@@ -150,6 +151,6 @@ function Login() {
       <TopButton></TopButton>
     </div>
   );
-}
+};
 
 export default Login;

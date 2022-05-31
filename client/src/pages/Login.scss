@@ -1,0 +1,212 @@
+#login-page {
+  .login {
+    padding-top: 22px;
+    width: 100vw;
+    height: 900px;
+    background: #070e27;
+  }
+
+  .loginwrap {
+    margin: 0px auto;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    padding: 0 27px;
+  }
+
+  .lin-title {
+    width: 252px;
+    height: 34px;
+    font-size: 32px;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  /* Login 페이지 이메일 그룹 */
+  .lin-email {
+    margin-top: 60px;
+    width: 86vw;
+    height: 106px;
+  }
+
+  .lin-email-title {
+    width: 86vw;
+    height: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .lin-email-input {
+    width: 86vw;
+    height: 52px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    font-size: 16px;
+    padding-left: 16px;
+    color: #000000;
+  }
+
+  .lin-email-warning {
+    width: 360px;
+    height: 18px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ff7171;
+    text-align: left;
+  }
+
+  /* Login 페이지 비밀번호 그룹 */
+  .lin-password {
+    width: 86vw;
+    height: 106px;
+    margin-top: 30px;
+  }
+
+  .lin-password-title {
+    width: 86vw;
+    height: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .lin-password-input {
+    width: 86vw;
+    height: 52px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    font-size: 16px;
+    line-height: 21px;
+    padding-left: 16px;
+    color: #000000;
+  }
+
+  .lin-password-warning {
+    width: 360px;
+    height: 18px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ff7171;
+    text-align: left;
+  }
+
+  .loginErrMsg {
+    color: #ff7171;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  /* Login page - 로그인 버튼 */
+  #lin-btnLogin {
+    width: 86vw;
+    height: 56px;
+    background: #0059f7;
+    border-radius: 8px;
+    padding: 20px;
+    border: 0px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+
+  .lin-signup {
+    width: 86vw;
+    height: 30px;
+    margin-top: 34px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-signup-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
+  .lin-experience {
+    width: 86vw;
+    height: 60px;
+    padding: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-experience-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
+  .lin-divider {
+    width: 86vw;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin-top: 20px;
+  }
+
+  /* Login page - 소셜 로그인 버튼 */
+  .lin-kakao {
+    width: 86vw;
+    height: 52px;
+    margin-top: 32px;
+    background-color: #ffe64d;
+    border-radius: 6px;
+    border-width: 0px;
+    background: url("../../src/img/kakao_login_large_wide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  .lin-google {
+    width: 86vw;
+    height: 54px;
+    margin-top: 15px;
+    background: #eeeeee;
+    border-radius: 6px;
+    padding: 0px;
+    border-width: 0px;
+    cursor: pointer;
+  }
+
+  .lin-google-logo {
+    float: left;
+    width: 45px;
+    height: 46px;
+    color: black;
+    margin: 4px 0px 4px 4px;
+    background: url("../../src/img/btn-google.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .lin-google-text {
+    width: 80vw;
+    height: 20px;
+    padding-top: 16px;
+    font-size: 18px;
+    line-height: 23px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+  }
+}
