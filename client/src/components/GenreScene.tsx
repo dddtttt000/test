@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { Interface } from "readline";
+
 require("dotenv").config();
 
 interface Props {

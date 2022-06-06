@@ -3,11 +3,35 @@ import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
+import "../pages/Post.scss";
 
-function Comment({ comments, userInfo, deleteComment }) {
+type comments = {
+  User: {
+    nickname: string;
+    image: string;
+  };
+  comment: string;
+  createdAt: string;
+  id: number;
+  singlepost_id: number;
+  updatedAt: string;
+};
+interface CommentProps {
+  comments: comments;
+  userInfo: any;
+  deleteComment: Function;
+}
+
+const Comment: React.FC<CommentProps> = ({
+  comments,
+  userInfo,
+  deleteComment,
+}) => {
   const [isUser] = useState(userInfo);
-  const imgId = { 0: Jake, 1: Meg, 2: Mili, 3: Steven };
-  const [userImg] = useState(imgId[comments.User.image]);
+  // const imgId = { 0: Jake, 1: Meg, 2: Mili, 3: Steven };
+  const imgId = [Jake, Meg, Mili, Steven];
+  const numberImg = Number(comments.User.image);
+  const [userImg] = useState(imgId[numberImg]);
 
   return (
     <>
@@ -25,8 +49,8 @@ function Comment({ comments, userInfo, deleteComment }) {
             {isUser === null ? null : userInfo.nickname ===
               comments.User.nickname ? (
               <div
-                onClick={deleteComment}
-                id={comments.id}
+                onClick={() => deleteComment}
+                id={comments.id.toString()}
                 className="post-mycomment-group2-delete"
               ></div>
             ) : null}
@@ -38,6 +62,6 @@ function Comment({ comments, userInfo, deleteComment }) {
       </div>
     </>
   );
-}
+};
 
 export default Comment;

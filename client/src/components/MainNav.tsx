@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import { Link } from "react-router-dom";
+import "./MainNav.scss";
 
-function MainNav() {
+const MainNav: React.FC = () => {
   const { isLogin } = useContext(MyContext); // 유저 정보를 확인
   const [searchText, setSearchText] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setSearchText(e.target.value);
   };
 
@@ -16,7 +17,7 @@ function MainNav() {
     }
   };
 
-  const handleMoveSearchPage = (e) => {
+  const handleMoveSearchPage = (e: any) => {
     if (e.key === "Enter" && searchText !== "") {
       window.location.replace(`/search/${searchText}`);
     }
@@ -57,6 +58,6 @@ function MainNav() {
       </Link>
     </div>
   );
-}
+};
 
 export default MainNav;

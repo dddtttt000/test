@@ -11,7 +11,7 @@ import Main from "./pages/Main";
 import Search from "./pages/Search.js";
 import Makegallery from "./pages/Makegallery.js";
 import Makepost from "./pages/Makepost.js";
-import Post from "./pages/Post.js";
+import Post from "./pages/Post";
 import Gallery from "./pages/Gallery.js";
 import Mygallery from "./pages/Mygallery.js";
 import Landing from "./pages/Landing";

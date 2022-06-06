@@ -11,16 +11,29 @@ import TopButton from "../components/TopButton";
 import SceneInGalleryAddModal from "../components/SceneInGalleryAddModal";
 import axios from "axios";
 import { useParams, useHistory } from "react-router";
+import "./Post.scss";
 axios.defaults.withCredentials = true;
 
-function Post() {
-  const { postId } = useParams();
+type comments = {
+  User: {
+    nickname: string;
+    image: string;
+  };
+  comment: string;
+  createdAt: string;
+  id: number;
+  singlepost_id: number;
+  updatedAt: string;
+}[];
+
+const Post: React.FC = () => {
+  const { postId } = useParams<{ postId: string }>();
   const { isLogin, userInfo } = useContext(MyContext); // 로그인 유저 정보
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [deleteModal, setDeleteModal] = useState(false); // 삭제 모달
-  const [comments, setComments] = useState([]); // get 댓글목록 불러온거
+  const [comments, setComments] = useState<comments>([]); // get 댓글목록 불러온거
   const [commentContent, setCommentContent] = useState(comments.length); // post 완료된 댓글목록 불러온거
   const [writeComment, setWriteComment] = useState(""); // 댓글 작성하기
   const [user, setuser] = useState(null); // 작성자 닉네임
@@ -54,7 +67,6 @@ function Post() {
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${postId}`)
       .then((res) => {
-        //console.log("like info => ", res);
         if (res.data.Like === null) {
           setlikeModal(false);
         } else {
@@ -118,7 +130,7 @@ function Post() {
       });
   };
 
-  const handleChangeContent = (e) => {
+  const handleChangeContent = (e: any) => {
     setcontent(e.target.value);
   };
 
@@ -131,7 +143,8 @@ function Post() {
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`)
       .then((res) => {
-        setSinglePost(res);
+        // console.log("res =>", res);
+        // setSinglePost(res);
         setuser(res.data.data.User.nickname);
         setcontent(res.data.data.content);
         setimage(res.data.data.image);
@@ -152,7 +165,7 @@ function Post() {
       .catch((err) => console.error(err));
   };
 
-  const handleInputValue = (e) => {
+  const handleInputValue = (e: any) => {
     setWriteComment(e.target.value);
   };
 
@@ -165,7 +178,7 @@ function Post() {
           singlepostid: postId,
           comment: writeComment,
         },
-        { accept: "application/json" },
+        // { accept: "application/json" },
       )
       .then((res) => {
         writeCommentDeleted();
@@ -181,7 +194,7 @@ function Post() {
   };
 
   // 댓글 삭제하기
-  const deleteComment = (e) => {
+  const deleteComment = (e: any) => {
     axios
       .delete(`${process.env.REACT_APP_EC2_URL}/comment/${e.target.id}`)
       .then((res) => {
@@ -315,11 +328,10 @@ function Post() {
         <SceneInGalleryAddModal
           handleSetAddModal={handleSetAddModal}
           postId={postId}
-          haveGallery={haveGallery}
         />
       ) : null}
     </div>
   );
-}
+};
 
 export default Post;

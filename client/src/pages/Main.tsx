@@ -103,7 +103,7 @@ const Main: React.FC = () => {
       if (genreScene.length !== 4) {
         setAddSceneIcon(true);
       }
-      console.log(curScenes, genreScene);
+      // console.log(curScenes, genreScene);
       setCurScenes([...curScenes, ...genreScene]);
       curScenePage.current += scenePerPage.current;
     } catch (err) {

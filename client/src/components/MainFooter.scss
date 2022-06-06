@@ -1,0 +1,101 @@
+.mF-container {
+  background: #0a142f;
+  margin: auto;
+  bottom: 0;
+}
+.mainFooter {
+  height: 275px;
+  background: #0a142f;
+  padding: 63px 183px 34px;
+  margin-top: auto;
+}
+
+.footer-wrap {
+  height: 91px;
+  width: 714px;
+  text-align: left;
+  margin: auto;
+}
+
+.mF-footer-logo {
+  float: left;
+  width: 69px;
+  height: 85px;
+  background-color: #0059f7;
+  background: url("../img/footer_logo.png");
+  background-position: center;
+  background-size: contain;
+}
+
+.mF-UI-about {
+  float: left;
+  margin-left: 16%;
+  width: 130px;
+  height: 67px;
+}
+
+.mF-UI-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 16px;
+  color: #ffffff;
+  margin-bottom: 29px;
+}
+.mF-UI-text {
+  font-size: 14px;
+  line-height: 14px;
+  color: #ffffff;
+  font-weight: 900;
+  opacity: 0.7;
+  float: left;
+  margin-right: 24px;
+}
+
+.mF-contact {
+  display: inline-block;
+  width: 326px;
+  height: 75px;
+  margin-left: 5%;
+}
+
+.mF-contact-title {
+  float: left;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+.mF-contact-name {
+  float: left;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ffffff;
+  margin-right: 11px;
+  text-decoration: none;
+}
+
+.contact-back {
+  float: left;
+  margin-left: 30px;
+}
+
+.mf-divider {
+  margin-top: 40px;
+  opacity: 0.15;
+  border: 1px solid #ffffff;
+}
+
+.mF-footer-title {
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+.mF-footer2 {
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.75;
+  margin-top: 30px;
+}
