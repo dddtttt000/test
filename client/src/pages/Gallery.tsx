@@ -6,15 +6,36 @@ import GalleryDeleteModal from "../components/GalleryDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import { useHistory, useParams } from "react-router";
-import { MyContext } from "../contexts/Store";
+import { MyContext } from "../data/Store";
 import galleryAPI from "../api/galleryAPI";
 import likeAPI from "../api/likeAPI";
+import "./Gallery.scss";
 require("dotenv").config();
 
-function Gallery() {
+type galleryType = {
+  gallery: number;
+  title: string;
+  content: string;
+  user_image: string;
+  nickname: string;
+  singlepost: genreSceneType;
+}[];
+
+type genreSceneType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  description_id: number;
+  genre: string;
+  image: string;
+}[];
+
+const Gallery: React.FC = () => {
   const history = useHistory();
   const { userInfo } = useContext(MyContext); // 유저 정보를 확인
-  const { galleryId } = useParams();
+  const { galleryId } = useParams<{ galleryId: string }>();
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [editDeleteModal, setEditDeleteModal] = useState(true); // 수정버튼 클릭시 장면 설명 수정
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
@@ -24,8 +45,8 @@ function Gallery() {
   const [nicknameGallery, setNicknameGallery] = useState(""); // API로 받아온 갤러리 작성자 닉네임
   const [titleGallery, setTitleGallery] = useState(""); // API로 받아온 갤러리 타이틀
   const [contentGallery, setContentGallery] = useState(""); // API로 받아온 갤러리 설명
-  const [sceneGallery, setSceneGallery] = useState([]); // API로 받아온 갤러리 장면
-
+  const [sceneGallery, setSceneGallery] = useState<galleryType>([]); // API로 받아온 갤러리 장면
+  console.log(galleryId, typeof galleryId);
   const handleMatchingUserAndnickName = () => {
     if (userInfo === null) {
       setEditDeleteModal(true);
@@ -38,11 +59,11 @@ function Gallery() {
     setDeleteModal(!deleteModal);
   };
 
-  const handleTitleGallery = (e) => {
+  const handleTitleGallery = (e: any) => {
     setTitleGallery(e.target.value);
   };
 
-  const handleContentGallery = (e) => {
+  const handleContentGallery = (e: any) => {
     setContentGallery(e.target.value);
   };
 
@@ -189,7 +210,7 @@ function Gallery() {
                 {sceneGallery.map((scene) => {
                   return (
                     <GalleryContent
-                      key={scene.id}
+                      key={scene.gallery}
                       scene={scene}
                       editModal={editModal}
                       galleryId={galleryId}
@@ -221,6 +242,6 @@ function Gallery() {
       ) : null}
     </div>
   );
-}
+};
 
 export default Gallery;

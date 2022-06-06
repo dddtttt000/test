@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React, { useState, useContext } from "react";
-import { MyContext } from "../contexts/Store";
+import { MyContext } from "../data/Store";
 import MainNav from "../components/MainNav";
 import SignoutModal from "../components/SignoutModal";
 import MainFooter from "../components/MainFooter";

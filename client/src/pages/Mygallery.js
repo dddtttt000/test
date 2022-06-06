@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React, { useState, useContext, useEffect } from "react";
-import { MyContext } from "../contexts/Store";
+import { MyContext } from "../data/Store";
 import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import LikeScene from "../components/LikeScene";

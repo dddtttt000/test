@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { MyContext } from "../contexts/Store";
+import { MyContext } from "../data/Store";
 import { Link } from "react-router-dom";
 import "./MainNav.scss";
 

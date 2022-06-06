@@ -1,0 +1,156 @@
+.topbutton {
+  width: 55px;
+  height: 55px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 50px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbutton > div {
+  width: 30px;
+  height: 30px;
+  background: url("../img/ArrowTop.png");
+  background-size: contain;
+  margin-top: auto;
+}
+
+.backbutton {
+  width: 55px;
+  height: 55px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 50px;
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  padding: 12px;
+  cursor: pointer;
+  display: none;
+}
+
+.backbutton > div {
+  width: 30px;
+  height: 30px;
+  background: url("../img/ArrowBack.png");
+  background-size: contain;
+  display: none;
+}
+
+// .topbutton {
+//   width: 55px;
+//   height: 55px;
+//   background: rgba(255, 255, 255, 0.5);
+//   border: 1px solid #000000;
+//   box-sizing: border-box;
+//   border-radius: 50px;
+//   position: fixed;
+//   right: 30px;
+//   bottom: 90px;
+//   padding: 12px;
+//   cursor: pointer;
+//   z-index: 9999;
+// }
+
+// .topbutton > div {
+//   width: 30px;
+//   height: 30px;
+//   background: url("./img/ArrowTop.png");
+//   background-size: contain;
+// }
+
+// .backbutton {
+//   width: 55px;
+//   height: 55px;
+//   background: rgba(255, 255, 255, 0.5);
+//   border: 1px solid #000000;
+//   box-sizing: border-box;
+//   border-radius: 50px;
+//   position: fixed;
+//   left: 30px;
+//   bottom: 90px;
+//   padding: 12px;
+//   cursor: pointer;
+//   z-index: 99;
+// }
+
+// .backbutton > div {
+//   width: 30px;
+//   height: 30px;
+//   background: url("./img/ArrowBack.png");
+//   background-size: contain;
+// }
+
+// .homebutton {
+//   width: 55px;
+//   height: 55px;
+//   background: rgba(255, 255, 255, 0.5);
+//   border: 1px solid #000000;
+//   box-sizing: border-box;
+//   border-radius: 50px;
+//   position: fixed;
+//   left: 30px;
+//   bottom: 20px;
+//   padding: 15px;
+//   cursor: pointer;
+//   z-index: 99;
+// }
+
+// .homebutton > div {
+//   width: 24px;
+//   height: 24px;
+//   background: url("./img/Home.png");
+//   background-size: contain;
+// }
+
+// .addbutton {
+//   width: 55px;
+//   height: 55px;
+//   background: rgba(255, 255, 255, 0.5);
+//   border: 1px solid #000000;
+//   box-sizing: border-box;
+//   border-radius: 50px;
+//   position: fixed;
+//   left: 184px;
+//   bottom: 20px;
+//   padding: 15px;
+//   cursor: pointer;
+//   z-index: 99;
+// }
+
+// .addbutton > div {
+//   width: 24px;
+//   height: 24px;
+//   background: url("./img/AddF.png");
+//   background-size: contain;
+// }
+
+// .userbutton {
+//   width: 55px;
+//   height: 55px;
+//   background: rgba(255, 255, 255, 0.5);
+//   border: 1px solid #000000;
+//   box-sizing: border-box;
+//   border-radius: 50px;
+//   position: fixed;
+//   right: 30px;
+//   bottom: 20px;
+//   padding: 15px;
+//   cursor: pointer;
+//   z-index: 99;
+// }
+
+// .userbutton > div {
+//   width: 24px;
+//   height: 24px;
+//   background: url("./img/UserF.png");
+//   background-size: contain;
+// }

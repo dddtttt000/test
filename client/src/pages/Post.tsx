@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React, { useState, useEffect, useContext } from "react";
-import { MyContext } from "../contexts/Store";
+import { MyContext } from "../data/Store";
 import MainNav from "../components/MainNav";
 import WriteComment from "../components/WriteComment";
 import Comment from "../components/Comment";

@@ -1,12 +1,18 @@
 import { useEffect } from "react";
 
+interface Args extends IntersectionObserverInit {
+  freezeOnceVisible?: boolean;
+  target: any;
+  onIntersect: IntersectionObserverCallback;
+}
+
 function useIntersectionObserver({
   root,
   target,
   onIntersect,
-  threshold = 1.0,
-  rootMargin = "0px",
-}) {
+  threshold,
+  rootMargin,
+}: Args) {
   useEffect(() => {
     const observer = new IntersectionObserver(onIntersect, {
       root,

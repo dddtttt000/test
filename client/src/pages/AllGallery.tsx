@@ -6,15 +6,25 @@ import TopButton from "../components/TopButton";
 import ResultGallery from "../components/ResultGallery";
 import useIntersectionObserver from "../customHook/useIntersectionObserver";
 import searchAPI from "../api/searchAPI";
+import "./AllGallery.scss";
+
 require("dotenv").config();
 
-function AllGallery() {
+type gallerysType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}[];
+
+const AllGallery: React.FC = () => {
   const currentPage = useRef(1);
   const totalPage = useRef(0);
   const galleryPerPage = useRef(9);
 
   const [loading, setLoading] = useState(false);
-  const [gallerys, setGallerys] = useState([]);
+  const [gallerys, setGallerys] = useState<gallerysType>([]);
 
   const targetRef = useRef(null);
 
@@ -75,6 +85,6 @@ function AllGallery() {
       <MainFooter />
     </div>
   );
-}
+};
 
 export default AllGallery;

@@ -1,0 +1,43 @@
+.allScene-back {
+  background-color: #070e27;
+  width: 100vw;
+  height: auto;
+  color: #fff;
+}
+
+.allScene-wrap {
+  width: 100vw;
+  height: auto;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.allScene-genre {
+  width: 88vw;
+  margin: 34px auto 30px auto;
+}
+
+.allScene-text {
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 28px;
+  width: 200px;
+  display: inline-block;
+}
+
+.allScene-category-wrap {
+  height: 100%;
+  width: 88vw;
+  text-align: left;
+  margin: 0px auto;
+}
+
+.allScene-img-wrap {
+  padding-bottom: 20px;
+  width: 96vw;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  cursor: pointer;
+}

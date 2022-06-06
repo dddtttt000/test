@@ -1,0 +1,34 @@
+.allGallery-back {
+  background-color: #070e27;
+  width: 100vw;
+  height: auto;
+  color: #fff;
+}
+
+.allGallery-wrap {
+  width: 1060px;
+  height: auto;
+  margin: auto;
+}
+
+.allGallery-gallery {
+  padding-top: 34px;
+  width: 1060px;
+  height: auto;
+}
+
+.allGallery-text {
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 28px;
+  width: 250px;
+  display: inline-block;
+}
+
+.allGallery-gallery-wrap {
+  width: 1060px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

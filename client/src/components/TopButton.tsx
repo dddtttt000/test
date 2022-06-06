@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router";
-import { MyContext } from "../contexts/Store";
+import { MyContext } from "../data/Store";
+import "./TopButton.scss";
 
-function TopButton() {
+const TopButton: React.FC = () => {
   const { isLogin } = useContext(MyContext);
 
   const moveToTop = () => {
     document.documentElement.scrollTop = 0;
   };
 
-  const handleUserButton = (e) => {
+  const handleUserButton = () => {
     if (isLogin === false) {
       history.push("/login");
     } else {
@@ -17,7 +18,7 @@ function TopButton() {
     }
   };
 
-  const handlePostButton = (e) => {
+  const handlePostButton = () => {
     if (isLogin === false) {
       history.push("/login");
     } else {
@@ -38,14 +39,14 @@ function TopButton() {
       <div className="homebutton" onClick={() => history.push("/main")}>
         <div />
       </div>
-      <div className="addbutton" onClick={(e) => handlePostButton(e)}>
+      <div className="addbutton" onClick={() => handlePostButton()}>
         <div />
       </div>
-      <div className="userbutton" onClick={(e) => handleUserButton(e)}>
+      <div className="userbutton" onClick={() => handleUserButton()}>
         <div />
       </div>
     </div>
   );
-}
+};
 
 export default TopButton;

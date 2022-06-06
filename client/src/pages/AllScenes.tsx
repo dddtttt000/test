@@ -7,16 +7,28 @@ import TopButton from "../components/TopButton";
 import GenreScene from "../components/GenreScene";
 import useIntersectionObserver from "../customHook/useIntersectionObserver";
 import searchAPI from "../api/searchAPI";
+import "./AllScenes.scss";
 require("dotenv").config();
 
-function AllScenes() {
+type scenesType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  description_id: number;
+  genre: string;
+  image: string;
+}[];
+
+const AllScenes: React.FC = () => {
   const history = useHistory();
   const currentPage = useRef(1);
   const totalPage = useRef(0);
   const scenePerPage = useRef(12);
 
   const [loading, setLoading] = useState(false);
-  const [scenes, setScenes] = useState([]);
+  const [scenes, setScenes] = useState<scenesType>([]);
 
   const targetRef = useRef(null);
 
@@ -45,6 +57,8 @@ function AllScenes() {
   useIntersectionObserver({
     root: null,
     target: targetRef.current,
+    rootMargin: "0px",
+    threshold: 1.0,
     onIntersect: ([{ isIntersecting }]) => {
       if (
         isIntersecting &&
@@ -87,6 +101,6 @@ function AllScenes() {
       <MainFooter />
     </div>
   );
-}
+};
 
 export default AllScenes;

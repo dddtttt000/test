@@ -12,11 +12,11 @@ import Search from "./pages/Search.js";
 import Makegallery from "./pages/Makegallery.js";
 import Makepost from "./pages/Makepost.js";
 import Post from "./pages/Post";
-import Gallery from "./pages/Gallery.js";
+import Gallery from "./pages/Gallery";
 import Mygallery from "./pages/Mygallery.js";
 import Landing from "./pages/Landing";
-import AllScenes from "./pages/AllScenes.js";
-import AllGallery from "./pages/AllGallery.js";
+import AllScenes from "./pages/AllScenes";
+import AllGallery from "./pages/AllGallery";
 
 require("dotenv").config();
 

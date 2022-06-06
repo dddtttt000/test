@@ -1,5 +1,6 @@
 import React from "react";
 import lo from "../img/lo.gif";
+import "./LoadingIndicator.scss";
 
 function LoadingIndicator() {
   return (

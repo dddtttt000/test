@@ -4,7 +4,7 @@ axios.defaults.withCredentials = true;
 
 const galleryAPI = {
   // 갤러리 정보 가져오기
-  getGalleryId: async (galleryid) => {
+  getGalleryId: async (galleryid: string) => {
     const result = await axios.get(
       `${process.env.REACT_APP_EC2_URL}/gallery/${galleryid}`,
     );
@@ -37,7 +37,7 @@ const galleryAPI = {
   },
 
   // 장면 작성하기
-  make: async (title, desc) => {
+  make: async (title: string, desc: string) => {
     const result = await axios.post(
       `${process.env.REACT_APP_EC2_URL}/gallery`,
       {
@@ -55,7 +55,7 @@ const galleryAPI = {
   },
 
   //갤러리 정보 수정
-  patchInfo: async (galleryid, title, content) => {
+  patchInfo: async (galleryid: string, title: string, content: string) => {
     const result = await axios.patch(
       `${process.env.REACT_APP_EC2_URL}/gallery/${galleryid}`,
       {

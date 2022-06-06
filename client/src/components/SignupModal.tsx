@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../pages/Signup.scss";
 
 function SignupModal() {
   return (
