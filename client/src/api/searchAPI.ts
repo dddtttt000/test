@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const searchAPI = {
   // 장면 검색 API
-  scene: async (searchWord, start, limit) => {
+  scene: async (searchWord: string, start: number, limit: number) => {
     const result = await axios.get(
       `${process.env.REACT_APP_EC2_URL}/search/single?content=${searchWord}&page=${start}&limit=${limit}`,
     );
@@ -14,7 +14,7 @@ const searchAPI = {
   },
 
   //갤러리 검색 API
-  gallery: async (searchWord, start, limit) => {
+  gallery: async (searchWord: string, start: number, limit: number) => {
     const result = await axios.get(
       `${process.env.REACT_APP_EC2_URL}/search/gallery?content=${searchWord}&page=${start}&limit=${limit}`,
     );
@@ -25,7 +25,7 @@ const searchAPI = {
   },
 
   //영화제목 검색 API
-  title: async (searchWord) => {
+  title: async (searchWord: string) => {
     const result = await axios.get(
       `${process.env.REACT_APP_EC2_URL}/description/${searchWord}`,
     );

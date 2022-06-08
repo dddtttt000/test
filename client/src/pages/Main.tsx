@@ -23,6 +23,16 @@ type genreSceneType = {
   image: string;
 }[];
 
+type currentRankingGalleryType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  user_id: number;
+  image: { image: string }[];
+}[];
+
 // interface MainProps extends genreSceneData {}
 
 const Main: React.FC = () => {
@@ -31,7 +41,8 @@ const Main: React.FC = () => {
 
   // 인기 갤러리 코드 : 시작
   const [rankingGallerys, setRankingGallerys] = useState([]);
-  const [currentRankingGallery, setCurrentRankingGallery] = useState([]);
+  const [currentRankingGallery, setCurrentRankingGallery] =
+    useState<currentRankingGalleryType>([]);
   const [galleryIcon] = useState([1, 2, 3]);
   const currentPage = useRef(1);
   const galleryPerPage = useRef(3);

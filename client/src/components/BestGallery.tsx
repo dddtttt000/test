@@ -4,13 +4,37 @@ import { useHistory } from "react-router";
 import galleryAPI from "../api/galleryAPI";
 require("dotenv").config();
 
-function BestGallery({ gallery }) {
+type Gallery = {
+  gallery: {
+    id: number;
+    title: string;
+    content: string;
+    createdAt: string;
+    updatedAt: string;
+    user_id: number;
+    image: { image: string }[];
+  };
+};
+
+type genreSceneType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  description_id: number;
+  genre: string;
+  image: string;
+}[];
+
+const BestGallery: React.FC<Gallery> = ({ gallery }) => {
   const history = useHistory();
-  const [scenes, setScenes] = useState([]);
+  const [scenes, setScenes] = useState<genreSceneType>([]);
 
   const handleGetScenes = async () => {
     try {
-      const result = await galleryAPI.getGalleryId(gallery.id);
+      const result = await galleryAPI.getGalleryId(gallery.id.toString());
+      console.log("handleGetScenes result =>", result);
       setScenes(result.singlepost.slice(0, 4));
     } catch (err) {
       console.log(err);
@@ -47,6 +71,6 @@ function BestGallery({ gallery }) {
       </div>
     </div>
   );
-}
+};
 
 export default BestGallery;

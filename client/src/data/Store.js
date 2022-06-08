@@ -30,7 +30,7 @@ const Store = (props) => {
   };
 
   const handleLogin = () => {
-    if (sessionStorage.userInfo === "null") {
+    if (localStorage.userInfo === "null") {
       setIsLogin(false);
     }
   };
@@ -102,16 +102,16 @@ const Store = (props) => {
 
   useEffect(() => {
     handleLogin();
-    setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
+    setUserInfo(JSON.parse(window.localStorage.getItem("userInfo")));
     handlersocialLogin();
   }, []);
 
   useEffect(() => {
-    window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+    window.localStorage.setItem("userInfo", JSON.stringify(userInfo));
   }, [userInfo]);
 
   useEffect(() => {
-    window.sessionStorage.setItem("isLogin", JSON.stringify(isLogin));
+    window.localStorage.setItem("isLogin", JSON.stringify(isLogin));
   }, [isLogin]);
 
   // 소셜 로그인

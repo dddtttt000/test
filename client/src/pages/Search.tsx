@@ -10,10 +10,29 @@ import { useParams } from "react-router";
 import searchAPI from "../api/searchAPI";
 require("dotenv").config();
 
+type searchSceneType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  description_id: number;
+  genre: string;
+  image: string;
+}[];
+
+type searchGalleryType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}[];
+
 function Search() {
-  const [sceneResult, setSceneResult] = useState([]);
-  const [galleryResult, setGalleryResult] = useState([]);
-  const { searchWord } = useParams(); // 검색어
+  const [sceneResult, setSceneResult] = useState<searchSceneType>([]);
+  const [galleryResult, setGalleryResult] = useState<searchGalleryType>([]);
+  const { searchWord } = useParams<{ searchWord: string }>(); // 검색어
   const [addSceneIcon, setAddSceneIcon] = useState(false); // 장면 더보기 렌더링 상태
   const [addGalleryIcon, setAddGalleryIcon] = useState(false); // 갤러리 더보기 렌더링 상태
 
@@ -68,48 +87,48 @@ function Search() {
     <div className="search-container">
       <MainNav />
       <div className="search-devider"></div>
-      <center>
-        <div className="search-wrap">
-          <div className="search-results">{searchWord} 에 대한 검색결과</div>
-          <div className="results-text">장면 </div>
-          {sceneResult.length !== 0 ? (
-            <div>
-              <div className="result-scene-wrap">
-                {sceneResult.map((scene) => {
-                  return <ResultScene key={scene.id} scene={scene} />;
-                })}
-              </div>
-              {addSceneIcon ? null : (
-                <div onClick={handleLandingScenePage}>
-                  <div className="main-genre-img-addText">더 보기</div>
-                  <div className="main-genre-img-addImage"></div>
-                </div>
-              )}
+      {/* <center> */}
+      <div className="search-wrap">
+        <div className="search-results">{searchWord} 에 대한 검색결과</div>
+        <div className="results-text">장면 </div>
+        {sceneResult.length !== 0 ? (
+          <div>
+            <div className="result-scene-wrap">
+              {sceneResult.map((scene) => {
+                return <ResultScene key={scene.id} scene={scene} />;
+              })}
             </div>
-          ) : (
-            <NoResult />
-          )}
+            {addSceneIcon ? null : (
+              <div onClick={handleLandingScenePage}>
+                <div className="main-genre-img-addText">더 보기</div>
+                <div className="main-genre-img-addImage"></div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <NoResult />
+        )}
 
-          <div className="results-text">갤러리</div>
-          {galleryResult.length !== 0 ? (
-            <div>
-              <div className="result-gallery-wrap">
-                {galleryResult.map((gallery) => {
-                  return <ResultGallery key={gallery.id} gallery={gallery} />;
-                })}
-              </div>
-              {addGalleryIcon ? null : (
-                <div onClick={handleLandingGalleryPage}>
-                  <div className="main-genre-img-addText">더 보기</div>
-                  <div className="main-genre-img-addImage"></div>
-                </div>
-              )}
+        <div className="results-text">갤러리</div>
+        {galleryResult.length !== 0 ? (
+          <div>
+            <div className="result-gallery-wrap">
+              {galleryResult.map((gallery) => {
+                return <ResultGallery key={gallery.id} gallery={gallery} />;
+              })}
             </div>
-          ) : (
-            <NoResult />
-          )}
-        </div>
-      </center>
+            {addGalleryIcon ? null : (
+              <div onClick={handleLandingGalleryPage}>
+                <div className="main-genre-img-addText">더 보기</div>
+                <div className="main-genre-img-addImage"></div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <NoResult />
+        )}
+      </div>
+      {/* </center> */}
       <MainFooter></MainFooter>
       <TopButton></TopButton>
     </div>

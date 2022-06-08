@@ -25,7 +25,13 @@ const sceneAPI = {
   },
 
   // 장면 작성하기
-  make: async (title, titleId, image, content, genre) => {
+  make: async (
+    title: string,
+    titleId: string,
+    image: string,
+    content: string,
+    genre: string,
+  ) => {
     const result = await axios.post(
       `${process.env.REACT_APP_EC2_URL}/singlepost`,
       {

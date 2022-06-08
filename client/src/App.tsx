@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Userinfo from "./pages/Userinfo";
 import Main from "./pages/Main";
-import Search from "./pages/Search.js";
+import Search from "./pages/Search";
 import Makegallery from "./pages/Makegallery.js";
 import Makepost from "./pages/Makepost.js";
 import Post from "./pages/Post";

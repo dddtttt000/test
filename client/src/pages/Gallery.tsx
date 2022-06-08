@@ -46,7 +46,7 @@ const Gallery: React.FC = () => {
   const [titleGallery, setTitleGallery] = useState(""); // API로 받아온 갤러리 타이틀
   const [contentGallery, setContentGallery] = useState(""); // API로 받아온 갤러리 설명
   const [sceneGallery, setSceneGallery] = useState<galleryType>([]); // API로 받아온 갤러리 장면
-  console.log(galleryId, typeof galleryId);
+
   const handleMatchingUserAndnickName = () => {
     if (userInfo === null) {
       setEditDeleteModal(true);

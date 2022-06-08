@@ -12,7 +12,7 @@ const mainAPI = {
   },
 
   // 장르별 장면 API
-  genre: async (genre, start, limit) => {
+  genre: async (genre: string, start: number, limit: number) => {
     const result = await axios.get(
       `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${genre}&page=${start}&limit=${limit}`,
     );
