@@ -1,11 +1,26 @@
 import React from "react";
 import { useHistory } from "react-router";
+import "./BestGallery.scss";
 require("dotenv").config();
 
-function LikeScene({ likeScene }) {
+type likeSceneType = {
+  likeScene: {
+    id: number;
+    user_id: number;
+    title: string;
+    content: string;
+    createdAt: string;
+    updatedAt: string;
+    description_id: number;
+    genre: string;
+    image: string;
+  };
+};
+
+const LikeScene: React.FC<likeSceneType> = ({ likeScene }) => {
   const history = useHistory();
   return (
-    <div>
+    <div id="like-scene-page">
       <div
         className="result-scene-img"
         onClick={() => history.push(`/post/${likeScene.id}`)}
@@ -17,6 +32,6 @@ function LikeScene({ likeScene }) {
       </div>
     </div>
   );
-}
+};
 
 export default LikeScene;

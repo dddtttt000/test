@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import galleryAPI from "../api/galleryAPI";
 require("dotenv").config();
+import "./BestGallery.scss";
 
 type Gallery = {
   gallery: {
@@ -34,7 +35,7 @@ const BestGallery: React.FC<Gallery> = ({ gallery }) => {
   const handleGetScenes = async () => {
     try {
       const result = await galleryAPI.getGalleryId(gallery.id.toString());
-      console.log("handleGetScenes result =>", result);
+
       setScenes(result.singlepost.slice(0, 4));
     } catch (err) {
       console.log(err);
@@ -46,7 +47,7 @@ const BestGallery: React.FC<Gallery> = ({ gallery }) => {
   }, [gallery]);
 
   return (
-    <div>
+    <div id="best-gallery-page">
       <div className="BG-container">
         <div
           className="BG-title"

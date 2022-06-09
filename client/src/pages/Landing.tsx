@@ -4,13 +4,13 @@ import "./Landing.scss";
 import { Link } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
 
-function Landing() {
+const Landing: React.FC = () => {
   return (
     <div id="landing-page">
       <div className="landing-main-logo"></div>
       {/* <center> */}
-      <div className="landing-main-container ">
-        <div className="landing-main-img">
+      <div className="landing-main-container">
+        <div className="landing-main-img margin-center">
           <div className="landing-main-text">
             서로 다른 장면으로
             <br></br>
@@ -38,7 +38,7 @@ function Landing() {
         </Link>
       </div>
       <div className="landing-2-container">
-        <div className="landing-2-text-box">
+        <div className="landing-2-text-box margin-center">
           <div className="landing-2-icon-1"></div>
           <div className="landing-2-text-title">
             공유하고 싶은 영화 속 장면을
@@ -54,7 +54,7 @@ function Landing() {
         <div className="landing-2-img">시연영상 들어갈 예정</div>
       </div>
       <div className="landing-2-container">
-        <div className="landing-2-text-box">
+        <div className="landing-2-text-box margin-center">
           <div className="landing-2-icon-2"></div>
           <div className="landing-2-text-title">
             테마별로 영화 속 장면들을
@@ -70,7 +70,7 @@ function Landing() {
         <div className="landing-2-img">시연영상 들어갈 예정</div>
       </div>
       <div className="landing-2-container">
-        <div className="landing-2-text-box">
+        <div className="landing-2-text-box margin-center">
           <div className="landing-2-icon-3"></div>
           <div className="landing-2-text-title">
             갤러리, 개성이 넘치다 못해
@@ -87,11 +87,11 @@ function Landing() {
       </div>
       {/* <center> */}
       <div className="landing-start-wrap">
-        <div className="start-box">
+        <div className="start-box margin-center text-align-center">
           <div className="start-sub">영화 속 한 장면이 떠오르시나요?</div>
           <div className="start-title">지금 바로 시작해 보세요!</div>
           <Link className="link" to="/main">
-            <div className="start-btn">
+            <div className="start-btn margin-center">
               <div className="start-btn-text">Get Started</div>
               <div className="start-btn-arrow"></div>
             </div>
@@ -102,6 +102,6 @@ function Landing() {
       <MainFooter />
     </div>
   );
-}
+};
 
 export default Landing;
