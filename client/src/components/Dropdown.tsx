@@ -1,6 +1,30 @@
 import React from "react";
 
-function Dropdown({ options, handleDropDownClick }) {
+interface DropdownProps {
+  options: {
+    id: number;
+    title: string;
+    title_eng: string | null;
+    genre: string;
+    director: string;
+    released: string;
+  }[];
+  handleDropDownClick: (data: movieType) => void;
+}
+
+interface movieType {
+  id: number;
+  title: string;
+  title_eng: string | null;
+  genre: string;
+  director: string;
+  released: string;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({
+  options,
+  handleDropDownClick,
+}) => {
   console.log(options);
   return (
     <ul className="MP-movie-DropDownContainer">
@@ -18,6 +42,6 @@ function Dropdown({ options, handleDropDownClick }) {
       <li id="dropdown">원하는 결과가 없을 경우 다른 단어로 검색해주세요.</li>
     </ul>
   );
-}
+};
 
 export default Dropdown;

@@ -2,7 +2,29 @@ import React from "react";
 import { useHistory } from "react-router";
 require("dotenv").config();
 
-function MadeScene({ scene }) {
+interface MadeSceneProps {
+  scene: {
+    id: number;
+    title: string;
+    content: string;
+    createdAt: string;
+    updatedAt: string;
+    image: string;
+  };
+
+  haveGallery: {
+    id: number;
+    title: string;
+    content: string;
+    createdAt: string;
+    updatedAt: string;
+    description_id: number;
+    genre: string;
+    image: string;
+  }[];
+}
+
+const MadeScene: React.FC<MadeSceneProps> = ({ scene, haveGallery }) => {
   const history = useHistory();
 
   return (
@@ -25,6 +47,6 @@ function MadeScene({ scene }) {
       </div>
     </div>
   );
-}
+};
 
 export default MadeScene;

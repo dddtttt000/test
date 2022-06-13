@@ -9,9 +9,28 @@ import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import searchAPI from "../api/searchAPI";
 import sceneAPI from "../api/sceneAPI";
+import "./Makepost.scss";
 require("dotenv").config();
 
-function Makepost() {
+type optionsType = {
+  id: number;
+  title: string;
+  title_eng: string | null;
+  genre: string;
+  director: string;
+  released: string;
+}[];
+
+interface movieType {
+  id: number;
+  title: string;
+  title_eng: string | null;
+  genre: string;
+  director: string;
+  released: string;
+}
+
+const Makepost: React.FC = () => {
   const [seletedGenre, setSeletedGenre] = useState(""); // 선택한 장르가 담기는 곳
   const [postDescription, setPostDescription] = useState(""); // 장면 설명이 담기는 곳
 
@@ -19,10 +38,10 @@ function Makepost() {
   // 검색어 입력 시 드랍다운 : 시작
   const [hasText, setHasText] = useState(false); // 문자가 입력이 됬는지 안됬는지 체크
   const [inputValue, setInputVaule] = useState(""); // 입력한 문자가 담기는 곳
-  const [inputValueId, setInputVauleId] = useState(""); // 선택한 영화 ID값 담는곳
-  const [options, setOptions] = useState([]); // 드랍다운으로 보여지는 전체 목록
+  const [inputValueId, setInputVauleId] = useState<string>(""); // 선택한 영화 ID값 담는곳
+  const [options, setOptions] = useState<optionsType>([]); // 드랍다운으로 보여지는 전체 목록
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     const { value } = e.target;
     if (e.key === "Enter") {
       return handleSearchMovieTitle();
@@ -48,41 +67,45 @@ function Makepost() {
     setHasText(false);
   };
 
-  const handleDropDownClick = (data) => {
-    setInputVauleId(data.id);
+  const handleDropDownClick = (data: movieType) => {
+    setInputVauleId(data.id.toString());
     setInputVaule(data.title);
-    const resultOptions = options.filter((option) => option === data.title);
+    const resultOptions = options.filter(
+      (option) => option.title === data.title,
+    );
     setOptions(resultOptions);
     setHasText(false);
   };
   // 검색어 입력 시 드랍다운 : 끝
 
   // 이미지 drag & drop 코드 : 시작
-  const uploadBoxRef = useRef();
-  const inputRef = useRef();
+  const uploadBoxRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const uploadBox = uploadBoxRef.current;
-    const input = inputRef.current;
+    const uploadBox = uploadBoxRef.current!;
+    const input = inputRef.current!;
 
-    const changeHandler = (event) => {
+    console.log("uploadBox ===>", uploadBox);
+
+    const changeHandler = (event: any) => {
       const files = event.target.files[0];
       uploadFile(files);
     };
 
-    const dropHandler = (event) => {
+    const dropHandler = (event: any) => {
       event.preventDefault();
       event.stopPropagation();
       const files = event.dataTransfer.files[0];
       uploadFile(files);
     };
 
-    const dragOverHandler = (event) => {
+    const dragOverHandler = (event: any) => {
       event.preventDefault();
       event.stopPropagation();
     };
 
-    uploadBox.addEventListener("drop", dropHandler);
+    uploadBox!.addEventListener("drop", dropHandler);
     uploadBox.addEventListener("dragover", dragOverHandler);
     input.addEventListener("change", changeHandler);
 
@@ -95,7 +118,7 @@ function Makepost() {
   // drag & drop 코드 : 끝
 
   // 네이티브 SDK 를 통해 파일 업로드 : 시작
-  const [uploadImageName, setUploadImageName] = useState(null); // 이미지업로드 성공시 S3에 업로드된 파일명이 담긴다.
+  const [uploadImageName, setUploadImageName] = useState(""); // 이미지업로드 성공시 S3에 업로드된 파일명이 담긴다.
 
   AWS.config.update({
     accessKeyId: process.env.REACT_APP_IAM_AccessKeyId,
@@ -107,17 +130,17 @@ function Makepost() {
     region: process.env.REACT_APP_S3_region_ImageUpload,
   });
 
-  const uploadFile = (file) => {
+  const uploadFile = (file: any) => {
     let name =
       Math.floor(Math.random() * 1000).toString() +
       Date.now() +
       "." +
       file.name.split(".").pop();
 
-    const params = {
+    const params: AWS.S3.PutObjectRequest = {
       ACL: "public-read",
       Body: file,
-      Bucket: process.env.REACT_APP_S3_BucketName_ImageUpload,
+      Bucket: process.env.REACT_APP_S3_BucketName_ImageUpload!,
       Key: name,
       ContentType: "image/jpg,image/png,image/jpeg,image/gif",
     };
@@ -128,9 +151,10 @@ function Makepost() {
     });
   };
 
-  const handleFileInput = (e) => {
-    setUploadImageName(null);
+  const handleFileInput = (e: any) => {
+    setUploadImageName("");
     uploadFile(e.target.files[0]);
+    console.log(e.target.files);
   };
   // 네이티브 SDK 를 통해 파일 업로드 : 끝
 
@@ -139,7 +163,7 @@ function Makepost() {
       await sceneAPI.make(
         inputValue,
         inputValueId,
-        uploadImageName,
+        uploadImageName!,
         postDescription,
         seletedGenre,
       );
@@ -206,7 +230,7 @@ function Makepost() {
             </div>
             <div className="MP-photo-wrap">
               <div className="MP-sub-title">사진 선택</div>
-              <label className="MP-photo-label" for="ex-file">
+              <label className="MP-photo-label" htmlFor="ex-file">
                 선택하기
               </label>
               <input
@@ -263,6 +287,6 @@ function Makepost() {
       <TopButton></TopButton>
     </div>
   );
-}
+};
 
 export default Makepost;

@@ -11,15 +11,59 @@ import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import sceneAPI from "../api/sceneAPI";
 import galleryAPI from "../api/galleryAPI";
+import "./Mygallery.scss";
 require("dotenv").config();
 
-function Mygallery() {
+interface MygalleryProps {}
+
+type haveScenesT = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  image: string;
+}[];
+
+type genreSceneType = {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  description_id: number;
+  genre: string;
+  image: string;
+}[];
+
+type haveLikeScenesT = {
+  id: number;
+  user_id: number;
+  title: string;
+  genre: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  image: string;
+  description_id: number | null;
+}[];
+
+type haveLikeGallerysT = {
+  id: number;
+  user_id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}[];
+
+const Mygallery: React.FC<MygalleryProps> = () => {
   const { userInfo } = useContext(MyContext); // 유저 정보를 확인
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
 
-  const [haveScenes, setHaveScenes] = useState([]);
-  const [renderScenes, setRenderScenes] = useState([]);
+  const [haveScenes, setHaveScenes] = useState<haveScenesT>([]);
+  const [renderScenes, setRenderScenes] = useState<haveScenesT>([]);
   const [currentPageScene, setCurrentPageScene] = useState(1);
   const [scenePerPage] = useState(4);
   const [addSceneIcon, setAddSceneIcon] = useState(false);
@@ -58,8 +102,8 @@ function Mygallery() {
     setCurrentPageScene(currentPageScene + 1);
   };
 
-  const [haveGallery, setHaveGallery] = useState([]);
-  const [renderGallery, setRenderGallery] = useState([]);
+  const [haveGallery, setHaveGallery] = useState<genreSceneType>([]);
+  const [renderGallery, setRenderGallery] = useState<genreSceneType>([]);
   const [currentPageGallery, setCurrentPageGallery] = useState(1);
   const [galleryPerPage] = useState(2);
   const [addGalleryIcon, setAddGalleryIcon] = useState(false);
@@ -90,8 +134,8 @@ function Mygallery() {
     }
   };
 
-  const [haveLikeScenes, setHaveLikeScenes] = useState([]);
-  const [renderLikeScenes, setRenderLikeScenes] = useState([]);
+  const [haveLikeScenes, setHaveLikeScenes] = useState<haveLikeScenesT>([]);
+  const [renderLikeScenes, setRenderLikeScenes] = useState<haveLikeScenesT>([]);
   const [currentPageLikeScene, setCurrentPageLikeScene] = useState(1);
   const [likeScenePerPage] = useState(4);
   const [addLikeSceneIcon, setAddLikeSceneIcon] = useState(false);
@@ -123,8 +167,11 @@ function Mygallery() {
     setCurrentPageLikeScene(currentPageLikeScene + 1);
   };
 
-  const [haveLikeGallerys, setHaveLikeGallerys] = useState([]);
-  const [renderLikeGallerys, setRenderLikeGallerys] = useState([]);
+  const [haveLikeGallerys, setHaveLikeGallerys] = useState<haveLikeGallerysT>(
+    [],
+  );
+  const [renderLikeGallerys, setRenderLikeGallerys] =
+    useState<haveLikeGallerysT>([]);
   const [currentPageLikeGallery, setCurrentPageLikeGallery] = useState(1);
   const [likeGalleryPerPage] = useState(2);
   const [addLikeGalleryIcon, setAddLikeGalleryIcon] = useState(false);
@@ -213,10 +260,10 @@ function Mygallery() {
               </div>
             ) : (
               <div className="no-results-wrap">
-                <center>
-                  <div className="no-results-icon"></div>
-                  <div className="no-results-text">장면을 추가해 주세요.</div>
-                </center>
+                {/* <center> */}
+                <div className="no-results-icon"></div>
+                <div className="no-results-text">장면을 추가해 주세요.</div>
+                {/* </center> */}
               </div>
             )}
           </div>
@@ -248,10 +295,10 @@ function Mygallery() {
               </div>
             ) : (
               <div className="no-results-wrap">
-                <center>
-                  <div className="no-results-icon"></div>
-                  <div className="no-results-text">리스트를 추가해 주세요.</div>
-                </center>
+                {/* <center> */}
+                <div className="no-results-icon"></div>
+                <div className="no-results-text">리스트를 추가해 주세요.</div>
+                {/* </center> */}
               </div>
             )}
           </div>
@@ -336,6 +383,6 @@ function Mygallery() {
       <TopButton></TopButton>
     </div>
   );
-}
+};
 
 export default Mygallery;

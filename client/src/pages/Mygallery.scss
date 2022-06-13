@@ -1,0 +1,152 @@
+.my-g-container {
+  background-color: #070e27;
+  width: 100vw;
+  height: auto;
+  color: #fff;
+}
+
+.my-g-wrap {
+  width: 840px;
+  height: auto;
+  margin: auto;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.my-g-title-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.my-g-title {
+  margin-top: 34px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+}
+
+.my-g-user-wrap {
+  margin-top: 34px;
+  width: auto;
+  height: 40px;
+  display: flex;
+  justify-content: right;
+}
+
+.my-g-account-icon {
+  width: 18px;
+  height: 18px;
+  background: url("../img/account.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 9px;
+  margin-right: 10px;
+}
+
+.my-g-account-name {
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  text-decoration-line: underline;
+  color: #ffffff;
+  float: right;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.my-g-hr {
+  border: 1px solid #3a456f;
+  width: 840px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.my-g-scene-wrap {
+  width: 840px;
+  margin-bottom: 40px;
+  /* height: 428px; */
+  /* border: 1px solid red; */
+}
+
+.my-g-sub-title {
+  font-size: 26px;
+  line-height: 30px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.my-g-add-wrap {
+  width: 110px;
+  height: 30px;
+  /* border: 1px solid red; */
+  float: right;
+}
+
+.my-g-add-list-wrap {
+  width: 125px;
+  height: 30px;
+  /* border: 1px solid red; */
+  float: right;
+}
+
+.my-g-add-text {
+  font-size: 18px;
+  line-height: 21px;
+  text-decoration-line: underline;
+  display: inline-block;
+  margin-top: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.my-g-add-icon {
+  width: 30px;
+  height: 30px;
+  background: url("../img/Add_fff.png");
+  background-position: center;
+  background-size: contain;
+  color: #fff;
+  float: right;
+  margin-right: 12px;
+}
+
+.my-g-like-hr {
+  border: 1px solid #c3c5cc;
+  width: 840px;
+  margin: 15px 0 15px 0;
+}
+
+.my-g-like-add-icon {
+  width: 30px;
+  height: 30px;
+  background: url("../img/Add_fff.png");
+  background-position: center;
+  background-size: contain;
+  color: #fff;
+  margin-right: 12px;
+  display: inline-block;
+}
+
+.my-g-like-minus-icon {
+  width: 30px;
+  height: 30px;
+  background: url("../img/Minus.png");
+  background-position: center;
+  background-size: contain;
+  color: #fff;
+  margin-right: 12px;
+  display: inline-block;
+}
+
+.my-g-like-title {
+  font-size: 26px;
+  line-height: 30px;
+  float: left;
+  cursor: pointer;
+}
+
+.my-g-like-no {
+  color: #7c9cbf;
+  margin: 5px;
+}

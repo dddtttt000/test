@@ -8,12 +8,12 @@ type likeSceneType = {
     id: number;
     user_id: number;
     title: string;
+    genre: string;
     content: string;
     createdAt: string;
     updatedAt: string;
-    description_id: number;
-    genre: string;
     image: string;
+    description_id: number | null;
   };
 };
 
