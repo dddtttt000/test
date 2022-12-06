@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy" : ""
+    "deploy" : "aws s3 sync ./build s3://zena-test-s3 --profile=test-zena"
   },
   "eslintConfig": {
     "extends": [
