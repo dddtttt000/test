@@ -1,8 +1,9 @@
 #login-page {
   .login {
     padding-top: 22px;
-    width: 100vw;
-    height: 900px;
+    padding-bottom: 30px;
+    // width: 100vw;
+    // height: 900px;
     background: #070e27;
   }
 
@@ -25,12 +26,12 @@
   /* Login 페이지 이메일 그룹 */
   .lin-email {
     margin-top: 60px;
-    width: 86vw;
+    width: 100%;
     height: 106px;
   }
 
   .lin-email-title {
-    width: 86vw;
+    // width: 86vw;
     height: 20px;
     font-weight: 500;
     font-size: 18px;
@@ -39,7 +40,7 @@
   }
 
   .lin-email-input {
-    width: 86vw;
+    width: 100%;
     height: 52px;
     margin-top: 8px;
     border-radius: 6px;
@@ -62,13 +63,13 @@
 
   /* Login 페이지 비밀번호 그룹 */
   .lin-password {
-    width: 86vw;
+    // width: 86vw;
     height: 106px;
     margin-top: 30px;
   }
 
   .lin-password-title {
-    width: 86vw;
+    // width: 86vw;
     height: 20px;
     font-weight: 500;
     font-size: 18px;
@@ -77,7 +78,7 @@
   }
 
   .lin-password-input {
-    width: 86vw;
+    width: 100%;
     height: 52px;
     margin-top: 8px;
     border-radius: 6px;
@@ -107,7 +108,7 @@
 
   /* Login page - 로그인 버튼 */
   #lin-btnLogin {
-    width: 86vw;
+    // width: 86vw;
     height: 56px;
     background: #0059f7;
     border-radius: 8px;
@@ -121,7 +122,7 @@
   }
 
   .lin-signup {
-    width: 86vw;
+    // width: 86vw;
     height: 30px;
     margin-top: 34px;
     font-weight: 500;
@@ -138,7 +139,7 @@
   }
 
   .lin-experience {
-    width: 86vw;
+    // width: 86vw;
     height: 60px;
     padding: 22px;
     font-weight: 500;
@@ -155,7 +156,7 @@
   }
 
   .lin-divider {
-    width: 86vw;
+    // width: 86vw;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 20px;
@@ -163,7 +164,7 @@
 
   /* Login page - 소셜 로그인 버튼 */
   .lin-kakao {
-    width: 86vw;
+    // width: 86vw;
     height: 52px;
     margin-top: 32px;
     background-color: #ffe64d;
@@ -177,7 +178,8 @@
   }
 
   .lin-google {
-    width: 86vw;
+    // width: 86vw;
+    width: 100%;
     height: 54px;
     margin-top: 15px;
     background: #eeeeee;

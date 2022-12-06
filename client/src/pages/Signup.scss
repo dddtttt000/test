@@ -27,7 +27,7 @@
 
   /* signup 페이지 : 이메일 입력 그룹*/
   .signup-email {
-    width: 86vw;
+    width: 100%;
     height: 106px;
     margin-top: 29px;
   }
@@ -42,7 +42,7 @@
   }
 
   .signup-email-input {
-    width: 86vw;
+    width: 100%;
     height: 52px;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -74,7 +74,7 @@
 
   /* signup 페이지 : 비밀번호 입력 그룹*/
   .signup-password {
-    width: 86vw;
+    width: 100%;
     height: 106px;
     margin-top: 29px;
   }
@@ -91,21 +91,21 @@
 
   /* signup 페이지 : 비밀번호 재입력 그룹*/
   .signup-repassword {
-    width: 86vw;
+    width: 100%;
     height: 106px;
     margin-top: 29px;
   }
 
   /* signup 페이지 : 닉네임 입력 그룹*/
   .signup-nickname {
-    width: 86vw;
+    width: 100%;
     height: 106px;
     margin-top: 29px;
   }
 
   /* signup 페이지 : 이미지 선택*/
   .signup-image {
-    width: 86vw;
+    width: 100%;
     height: 20px;
     margin-top: 29px;
     font-size: 20px;
@@ -115,7 +115,7 @@
   }
 
   .signup-image-group {
-    width: 86vw;
+    width: 100%;
     height: 106px;
     margin-top: 18px;
     display: flex;
@@ -149,7 +149,7 @@
   }
 
   .signup-btn {
-    width: 86vw;
+    width: 100%;
     height: 56px;
     margin-top: 29px;
     background: #0059f7;
